@@ -3,31 +3,66 @@ const chalk = require('chalk');
 const install = require('gulp-install')
 const shell = require('gulp-shell')
 
+const libPackageInfo = require('./lib/package.json')
+console.log(libPackageInfo.name)
+
+gulp.task('dev:syncLib', shell.task([
+  'rm -rf node_modules/' + libPackageInfo.name,
+  'npm install ' + libPackageInfo.name
+], {cwd: './example'}))
+
+gulp.task('run:storybook', shell.task([
+  'npm run storybook'
+], {cwd: './example'}))
+
+gulp.task('run:android', shell.task([
+  'react-native run-android'
+], {cwd: './example'}))
+
+gulp.task('run:ios', shell.task([
+  'react-native run-ios'
+], {cwd: './example'}))
+
 gulp.task('setup', () => {
  return gulp.src(['./lib/package.json', 'example/package.json'])
    .pipe(install('npm install '))
 })
 
 gulp.task('publish:major', shell.task([
-  'npm version major'
+  'npm version major',
+  'git push',
+  'git push --tag',
 ]))
 
 gulp.task('publish:minor', shell.task([
-  'npm version minor'
+  'npm version minor',
+  'git push',
+  'git push --tag',
 ]))
 
 gulp.task('publish:patch', shell.task([
-  'npm version patch'
+  'npm version patch',
+  'git push',
+  'git push --tag',
 ]))
 
 gulp.task('help', () => {
-  console.log('\n-------------------')
+  console.log('\n------------------- React Native Library Seed Project -------------------')
   console.log(chalk.green('setup'), 'setup project init environment')
 
+  console.log('')
+  console.log(chalk.green('run:storybook'), 'start storybook packger server')
+  console.log(chalk.green('run:ios'), 'start ios client, alias for `react-native run-ios` ')
+  console.log(chalk.green('run:android'), 'start android client, alias for `react-native run-android` ')
+
+  console.log('')
+  console.log(chalk.green('dev:syncLib'), 'reinstall lib for example')
+
+  console.log('')
   console.log(chalk.green('publish:major'), 'publish as a major version to npm')
-  console.log(chalk.green('publish:minor'), 'publish as a major version to npm')
+  console.log(chalk.green('publish:minor'), 'publish as a minor version to npm')
   console.log(chalk.green('publish:patch'), 'publish as a patch version to npm')
 
-  console.log('-------------------\n')
+  console.log('------------------- React Native Library Seed Project -------------------\n')
 })
 gulp.task('default', ['help']);
