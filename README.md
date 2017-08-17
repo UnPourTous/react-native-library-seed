@@ -1,20 +1,19 @@
-# React Native seed project for UnPourTous components
+# React Native Library Seed Project
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-
-## Support
-1. Standardjs with jsx and babel supporting
-
-## Usage
-`example` for demo code, `lib` for library code.
-
-### Run example 
-``` js 
-cd example 
-yarn
-
-yarn run start
-react-native run-ios
 ```
+------------------- React Native Library Seed Project -------------------
+setup setup project init environment
 
+run:storybook start storybook packger server
+run:ios start ios client, alias for `react-native run-ios`
+run:android start android client, alias for `react-native run-android`
+
+dev:syncLib reinstall lib for example
+
+publish:major publish as a major version to npm
+publish:minor publish as a minor version to npm
+publish:patch publish as a patch version to npm
+------------------- React Native Library Seed Project -------------------
+```
