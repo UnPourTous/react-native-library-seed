@@ -51,17 +51,17 @@ gulp.task('help', () => {
   console.log(chalk.green('setup'), 'setup project init environment')
 
   console.log('')
-  console.log(chalk.green('run:storybook'), 'start storybook packger server')
-  console.log(chalk.green('run:ios'), 'start ios client, alias for `react-native run-ios` ')
-  console.log(chalk.green('run:android'), 'start android client, alias for `react-native run-android` ')
+  console.log(chalk.green('[run:storybook]'), 'start storybook packger server')
+  console.log(chalk.green('[run:ios]'), 'start ios client, alias for `react-native run-ios` ')
+  console.log(chalk.green('[run:android]'), 'start android client, alias for `react-native run-android` ')
 
   console.log('')
-  console.log(chalk.green('dev:syncLib'), 'reinstall lib for example')
+  console.log(chalk.green('[dev:syncLib]'), 'reinstall lib for example')
 
   console.log('')
-  console.log(chalk.green('publish:major'), 'publish as a major version to npm')
-  console.log(chalk.green('publish:minor'), 'publish as a minor version to npm')
-  console.log(chalk.green('publish:patch'), 'publish as a patch version to npm')
+  console.log(chalk.green('[publish:major]'), 'publish as a major version to npm')
+  console.log(chalk.green('[publish:minor]'), 'publish as a minor version to npm')
+  console.log(chalk.green('[publish:patch]'), 'publish as a patch version to npm')
 
   console.log('------------------- React Native Library Seed Project -------------------\n')
 })
