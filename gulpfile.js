@@ -1,12 +1,24 @@
 const gulp = require('gulp');
 const chalk = require('chalk');
 const install = require('gulp-install')
+const shell = require('gulp-shell')
 
 gulp.task('setup', () => {
  return gulp.src(['./lib/package.json', 'example/package.json'])
    .pipe(install('npm install '))
 })
 
+gulp.task('publish:major', shell.task([
+  'npm version major'
+]))
+
+gulp.task('publish:minor', shell.task([
+  'npm version minor'
+]))
+
+gulp.task('publish:patch', shell.task([
+  'npm version patch'
+]))
 
 gulp.task('help', () => {
   console.log('\n-------------------')
