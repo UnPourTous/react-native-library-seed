@@ -2,18 +2,4 @@
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-```
-------------------- React Native Library Seed Project -------------------
-setup setup project init environment
-
-run:storybook start storybook packger server
-run:ios start ios client, alias for `react-native run-ios`
-run:android start android client, alias for `react-native run-android`
-
-dev:syncLib reinstall lib for example
-
-publish:major publish as a major version to npm
-publish:minor publish as a minor version to npm
-publish:patch publish as a patch version to npm
-------------------- React Native Library Seed Project -------------------
-```
+![image](https://user-images.githubusercontent.com/1309744/29419473-c9a6d0a6-83a1-11e7-93cf-0a1b95a0a3ed.png)
