@@ -2,28 +2,28 @@
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-## Setup  
+## 0. Setup  
 
 ``` shell
 gulp setup
 ```
 This task will check git&node version and install node modules.
 
-## Run iOS  
+## 1. Run iOS  
 We use storybook to show our demo, start storybook and run ios project 
 
 ``` shell 
 gulp run:storybook run:ios
 ```
 
-## Run Android  
+## 2. Run Android  
 Almost the same as iOS
 ``` shell 
 gulp run:storybook run:android
 ```
 
 
-## Develop
+## 3. Develop
 
 #### 1. First, change code in `./lib`
 #### 2. Sync lib to example
@@ -32,9 +32,9 @@ gulp dev:syncLib
 ```
 This will delete the origin dir in `./example/node_modules` and reinstall this modules.
 
-## All Tasks
+## 4. All Tasks
 ![image](https://user-images.githubusercontent.com/1309744/29419473-c9a6d0a6-83a1-11e7-93cf-0a1b95a0a3ed.png)
 
 
-## TODO 
+## 5. TODO 
 Add githook check for code style
