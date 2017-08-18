@@ -6,6 +6,14 @@ const shell = require('gulp-shell')
 const libPackageInfo = require('./lib/package.json')
 console.log(libPackageInfo.name)
 
+gulp.task('check:node', shell.task([
+  'if [[ !`node --version | cut -d "v" -f 2 | sed -e "s/ //g"` < "7.0.0" ]]; then echo "node version 7 is preferred"; fi'
+]))
+
+gulp.task('check:git', shell.task([
+  'if [[ !`git --version | cut -d " " -f 3 | sed -e "s/ //g"` < "2.9.0" ]]; then echo "git version should greate than 2.9.0 which supoorts our githook"; fi'
+]))
+
 gulp.task('dev:syncLib', shell.task([
   'rm -rf node_modules/' + libPackageInfo.name,
   'npm install ' + libPackageInfo.name
@@ -23,7 +31,7 @@ gulp.task('run:ios', shell.task([
   'react-native run-ios'
 ], {cwd: './example'}))
 
-gulp.task('setup', () => {
+gulp.task('setup', ['check:git', 'check:node'], () => {
  return gulp.src(['./lib/package.json', 'example/package.json'])
    .pipe(install('npm install '))
 })
