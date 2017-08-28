@@ -31,9 +31,8 @@ gulp.task('run:ios', shell.task([
   'react-native run-ios'
 ], {cwd: './example'}))
 
-gulp.task('setup', ['check:git', 'check:node', shell.task([
-  'git config core.hooksPath ./.githooks',
-], {cwd: './lib'}))], () => {
+gulp.task('setup', ['check:git', 'check:node'], () => {
+  shell('git config core.hooksPath ./.githooks')
   return gulp.src(['./lib/package.json', 'example/package.json'])
    .pipe(install('npm install '))
 })
