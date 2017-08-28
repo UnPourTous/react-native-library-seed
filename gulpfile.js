@@ -1,5 +1,5 @@
-const gulp = require('gulp');
-const chalk = require('chalk');
+const gulp = require('gulp')
+const chalk = require('chalk')
 const install = require('gulp-install')
 const shell = require('gulp-shell')
 
@@ -31,8 +31,10 @@ gulp.task('run:ios', shell.task([
   'react-native run-ios'
 ], {cwd: './example'}))
 
-gulp.task('setup', ['check:git', 'check:node'], () => {
- return gulp.src(['./lib/package.json', 'example/package.json'])
+gulp.task('setup', ['check:git', 'check:node', shell.task([
+  'git config core.hooksPath ./.githooks',
+], {cwd: './lib'}))], () => {
+  return gulp.src(['./lib/package.json', 'example/package.json'])
    .pipe(install('npm install '))
 })
 
@@ -79,4 +81,4 @@ gulp.task('help', () => {
 
   console.log('------------------- React Native Library Seed Project -------------------\n')
 })
-gulp.task('default', ['help']);
+gulp.task('default', ['help'])
