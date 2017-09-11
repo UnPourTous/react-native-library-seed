@@ -37,6 +37,5 @@ This will delete the origin dir in `./example/node_modules` and reinstall this m
 
 
 ## 5. TODO
-- Add githook check for code style
 - Try Slush
 
